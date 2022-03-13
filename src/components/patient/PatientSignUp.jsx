@@ -7,8 +7,8 @@ import Box from '@mui/material/Box'
 import { Close } from '@mui/icons-material'
 import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
-import contract from '../contract'
-import web3 from '../web3'
+import contract from '../../contract'
+import web3 from '../../web3'
 import { Alert, Collapse, IconButton } from '@mui/material'
 
 const PatientSignUp = () => {

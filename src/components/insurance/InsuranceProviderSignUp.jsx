@@ -7,19 +7,18 @@ import Box from '@mui/material/Box'
 import { Close } from '@mui/icons-material'
 import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
-import contract from '../contract'
-import web3 from '../web3'
+import contract from '../../contract'
+import web3 from '../../web3'
 import { Alert, Collapse, IconButton } from '@mui/material'
 
-const HospitalSignUp = () => {
-	const [hospital, setHospital] = React.useState({
+const InsuranceProviderSignUp = () => {
+	const [insuranceProvider, setInsuranceProvider] = React.useState({
 		uid: '',
 		name: '',
 		helplineEmail: '',
 		helplineNumber: '',
 		emergencyNumber: '',
-		location: '',
-		speciality: ''
+		location: ''
 	})
 	const [open, setOpen] = React.useState(false)
 
@@ -29,12 +28,11 @@ const HospitalSignUp = () => {
 		helplineEmail,
 		helplineNumber,
 		emergencyNumber,
-		location,
-		speciality
-	} = hospital
+		location
+	} = insuranceProvider
 
 	const handleChange = (e) => {
-		setHospital((prevPatient) => ({
+		setInsuranceProvider((prevPatient) => ({
 			...prevPatient,
 			[e.target.name]: e.target.value
 		}))
@@ -51,19 +49,17 @@ const HospitalSignUp = () => {
 				helplineEmail,
 				helplineNumber,
 				emergencyNumber,
-				location,
-				speciality
+				location
 			)
 			.send({ from: accounts[0] }, (result) => {
 				setOpen(true)
-				setHospital({
+				setInsuranceProvider({
 					uid: '',
 					name: '',
 					helplineEmail: '',
 					helplineNumber: '',
 					emergencyNumber: '',
-					location: '',
-					speciality: ''
+					location: ''
 				})
 			})
 	}
@@ -84,7 +80,7 @@ const HospitalSignUp = () => {
 						</IconButton>
 					}
 					sx={{ mb: 2 }}>
-					Hospital added
+					Insurance Provider added
 				</Alert>
 			</Collapse>
 			<CssBaseline />
@@ -96,7 +92,7 @@ const HospitalSignUp = () => {
 					alignItems: 'center'
 				}}>
 				<Typography component='h1' variant='h5'>
-					Add Hospital Details
+					Add Insurance Provider Details
 				</Typography>
 				<Box
 					component='form'
@@ -168,16 +164,6 @@ const HospitalSignUp = () => {
 								onChange={handleChange}
 							/>
 						</Grid>
-						<Grid item xs={12}>
-							<TextField
-								required
-								fullWidth
-								name='speciality'
-								label='Speciality'
-								value={speciality}
-								onChange={handleChange}
-							/>
-						</Grid>
 					</Grid>
 					<Button
 						type='submit'
@@ -192,4 +178,4 @@ const HospitalSignUp = () => {
 	)
 }
 
-export default HospitalSignUp
+export default InsuranceProviderSignUp

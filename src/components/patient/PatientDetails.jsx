@@ -7,8 +7,8 @@ import {
 	Typography
 } from '@mui/material'
 import React, { useState } from 'react'
-import contract from '../contract'
-import web3 from '../web3'
+import contract from '../../contract'
+import web3 from '../../web3'
 
 const PatientDetails = () => {
 	const [aadhaarNumber, setAadhaarNumber] = useState('')

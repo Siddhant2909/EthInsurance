@@ -1,10 +1,12 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
-import Home from './components/Home'
-import HospitalSignUp from './components/HospitalSignUp'
-import InsuranceProviderSignUp from './components/InsuranceProviderSignUp'
-import PatientDetails from './components/PatientDetails'
-import PatientSignUp from './components/PatientSignUp'
+import Home from './components/common/Home'
+import HospitalSignUp from './components/hospital/HospitalSignUp'
+import InsuranceProviderSignUp from './components/insurance/InsuranceProviderSignUp'
+import PatientDetails from './components/patient/PatientDetails'
+import PatientSignUp from './components/patient/PatientSignUp'
+import PatientTreatment from './components/patient/PatientTreatment'
+import AddInsurancePolicy from './components/insurance/AddInsurancePolicy'
 
 const Router = () => {
 	return (
@@ -16,6 +18,11 @@ const Router = () => {
 			<Route
 				path='add-insurance-provider'
 				element={<InsuranceProviderSignUp />}
+			/>
+			<Route path='treat-patient' element={<PatientTreatment />} />
+			<Route
+				path='add-insurance-policy'
+				element={<AddInsurancePolicy />}
 			/>
 		</Routes>
 	)

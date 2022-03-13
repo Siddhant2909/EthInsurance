@@ -7,32 +7,36 @@ import Box from '@mui/material/Box'
 import { Close } from '@mui/icons-material'
 import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
-import contract from '../contract'
-import web3 from '../web3'
+import contract from '../../contract'
+import web3 from '../../web3'
 import { Alert, Collapse, IconButton } from '@mui/material'
 
-const InsuranceProviderSignUp = () => {
-	const [insuranceProvider, setInsuranceProvider] = React.useState({
+const PatientTreatment = () => {
+	const [treatment, setTreatment] = React.useState({
 		uid: '',
-		name: '',
-		helplineEmail: '',
-		helplineNumber: '',
-		emergencyNumber: '',
-		location: ''
+		patientAadhaar: '',
+		doctorName: '',
+		hospitalId: '',
+		diagnosis: '',
+		testsConducted: '',
+		billingAmount: '',
+		medicines: ''
 	})
 	const [open, setOpen] = React.useState(false)
 
 	const {
 		uid,
-		name,
-		helplineEmail,
-		helplineNumber,
-		emergencyNumber,
-		location
-	} = insuranceProvider
+		patientAadhaar,
+		doctorName,
+		hospitalId,
+		diagnosis,
+		testsConducted,
+		billingAmount,
+		medicines
+	} = treatment
 
 	const handleChange = (e) => {
-		setInsuranceProvider((prevPatient) => ({
+		setTreatment((prevPatient) => ({
 			...prevPatient,
 			[e.target.name]: e.target.value
 		}))
@@ -43,23 +47,27 @@ const InsuranceProviderSignUp = () => {
 
 		const accounts = await web3.eth.getAccounts()
 		await contract.methods
-			.addHospitalInfo(
+			.treatPatient(
 				uid,
-				name,
-				helplineEmail,
-				helplineNumber,
-				emergencyNumber,
-				location
+				patientAadhaar,
+				doctorName,
+				hospitalId,
+				diagnosis,
+				testsConducted,
+				billingAmount,
+				medicines
 			)
 			.send({ from: accounts[0] }, (result) => {
 				setOpen(true)
-				setInsuranceProvider({
+				setTreatment({
 					uid: '',
-					name: '',
-					helplineEmail: '',
-					helplineNumber: '',
-					emergencyNumber: '',
-					location: ''
+					patientAadhaar: '',
+					doctorName: '',
+					hospitalId: '',
+					diagnosis: '',
+					testsConducted: '',
+					billingAmount: '',
+					medicines: ''
 				})
 			})
 	}
@@ -80,7 +88,7 @@ const InsuranceProviderSignUp = () => {
 						</IconButton>
 					}
 					sx={{ mb: 2 }}>
-					Insurance Provider added
+					Treatment record added
 				</Alert>
 			</Collapse>
 			<CssBaseline />
@@ -92,7 +100,7 @@ const InsuranceProviderSignUp = () => {
 					alignItems: 'center'
 				}}>
 				<Typography component='h1' variant='h5'>
-					Add Insurance Provider Details
+					Add Treatment Record
 				</Typography>
 				<Box
 					component='form'
@@ -113,33 +121,22 @@ const InsuranceProviderSignUp = () => {
 						</Grid>
 						<Grid item xs={12}>
 							<TextField
-								name='name'
 								required
 								fullWidth
-								label='Hospital Name'
-								value={name}
-								onChange={handleChange}
-							/>
-						</Grid>
-						<Grid item xs={12}>
-							<TextField
-								required
-								fullWidth
-								label='Helpline Email'
-								name='helplineEmail'
-								autoComplete='email'
-								value={helplineEmail}
-								onChange={handleChange}
-							/>
-						</Grid>
-						<Grid item xs={12}>
-							<TextField
-								required
-								fullWidth
-								name='helplineNumber'
-								label='Helpline Number'
+								name='patientAadhaar'
+								label='Patient Aadhaar'
 								type='number'
-								value={helplineNumber}
+								value={patientAadhaar}
+								onChange={handleChange}
+							/>
+						</Grid>
+						<Grid item xs={12}>
+							<TextField
+								name='doctorName'
+								required
+								fullWidth
+								label={`Doctor's Name`}
+								value={doctorName}
 								onChange={handleChange}
 							/>
 						</Grid>
@@ -147,10 +144,10 @@ const InsuranceProviderSignUp = () => {
 							<TextField
 								required
 								fullWidth
-								name='emergencyNumber'
-								label='Emergency Number'
+								label='Hospital ID'
+								name='hospitalId'
 								type='number'
-								value={emergencyNumber}
+								value={hospitalId}
 								onChange={handleChange}
 							/>
 						</Grid>
@@ -158,9 +155,40 @@ const InsuranceProviderSignUp = () => {
 							<TextField
 								required
 								fullWidth
-								name='location'
-								label='Location'
-								value={location}
+								name='diagnosis'
+								label='Diagnosis'
+								value={diagnosis}
+								onChange={handleChange}
+							/>
+						</Grid>
+						<Grid item xs={12}>
+							<TextField
+								required
+								fullWidth
+								name='testsConducted'
+								label='Tests Conducted'
+								value={testsConducted}
+								onChange={handleChange}
+							/>
+						</Grid>
+						<Grid item xs={12}>
+							<TextField
+								required
+								fullWidth
+								name='billingAmount'
+								label='Billing Amount'
+								type='number'
+								value={billingAmount}
+								onChange={handleChange}
+							/>
+						</Grid>
+						<Grid item xs={12}>
+							<TextField
+								required
+								fullWidth
+								name='medicines'
+								label='Medicines'
+								value={medicines}
 								onChange={handleChange}
 							/>
 						</Grid>
@@ -170,7 +198,7 @@ const InsuranceProviderSignUp = () => {
 						fullWidth
 						variant='contained'
 						sx={{ mt: 3, mb: 2 }}>
-						Add details
+						Add record
 					</Button>
 				</Box>
 			</Box>
@@ -178,4 +206,4 @@ const InsuranceProviderSignUp = () => {
 	)
 }
 
-export default InsuranceProviderSignUp
+export default PatientTreatment

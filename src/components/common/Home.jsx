@@ -43,6 +43,11 @@ const Home = () => {
 						Add Insurance Company
 					</Link>
 				</Button>
+				<Button type='submit' variant='contained' sx={{ mt: 3, mb: 2 }}>
+					<Link to='treat-patient' className='action-link-text'>
+						Patient Treatment
+					</Link>
+				</Button>
 			</Box>
 		</div>
 	)
