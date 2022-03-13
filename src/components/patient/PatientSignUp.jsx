@@ -59,7 +59,7 @@ const PatientSignUp = () => {
 
 		const accounts = await web3.eth.getAccounts()
 		await contract.methods
-			.addPatientInfo(
+			.addPatientInfo([
 				aadhaarNumber,
 				email,
 				name,
@@ -74,8 +74,9 @@ const PatientSignUp = () => {
 				emergencyContactName,
 				emergencyContactRelation,
 				emergencyContactPhone
-			)
-			.send({ from: accounts[0] }, (result) => {
+			])
+			.send({ from: accounts[0] }, (error) => {
+				console.log('error from blockchain', error)
 				setOpen(true)
 				setPatient({
 					aadhaarNumber: '',
@@ -87,7 +88,7 @@ const PatientSignUp = () => {
 					insuranceId: '',
 					weight: '',
 					height: '',
-					address: '',
+					residentialAddress: '',
 					ailments: '',
 					emergencyContactName: '',
 					emergencyContactRelation: '',
@@ -96,8 +97,28 @@ const PatientSignUp = () => {
 			})
 	}
 
+	// const fillDummyData = () => {
+	// 	setPatient({
+	// 		aadhaarNumber: 111,
+	// 		email: 'test',
+	// 		name: 'test',
+	// 		age: 11,
+	// 		phoneNo: 11111,
+	// 		bloodGroup: 'test',
+	// 		insuranceId: 11111,
+	// 		height: 2342,
+	// 		weight: 2342,
+	// 		residentialAddress: 'test',
+	// 		ailments: 'test',
+	// 		emergencyContactName: 'test',
+	// 		emergencyContactRelation: 'test',
+	// 		emergencyContactPhone: 12423
+	// 	})
+	// }
+
 	return (
 		<Container component='main' maxWidth='xs'>
+			{/* <Button onClick={() => fillDummyData()}>Fill</Button> */}
 			<Collapse in={open} sx={{ marginTop: '20px' }}>
 				<Alert
 					action={

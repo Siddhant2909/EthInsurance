@@ -52,38 +52,44 @@ const PatientDetails = () => {
 				{patient && (
 					<>
 						<Typography variant='h6'>Patient Details</Typography>
-						<Typography>Name: {patient._name}</Typography>
-						<Typography>Age: {patient._age._hex}</Typography>
-						<Typography>Height: {patient._height._hex}</Typography>
-						<Typography>Weight: {patient._weight._hex}</Typography>
-						<Typography>Email: {patient._email}</Typography>
+						<Typography>Name: {patient.name}</Typography>
 						<Typography>
-							Mobile: {parseInt(patient._phoneNo._hex)}
+							Age: {parseInt(patient.age._hex)}
 						</Typography>
 						<Typography>
-							Address: {patient._residentialAddress}
+							Height: {parseInt(patient.height._hex)}
+						</Typography>
+						<Typography>
+							Weight: {parseInt(patient.weight._hex)}
+						</Typography>
+						<Typography>Email: {patient.email}</Typography>
+						<Typography>
+							Mobile: {parseInt(patient.phoneNo._hex)}
+						</Typography>
+						<Typography>
+							Address: {patient.residentialAddress}
 						</Typography>
 						<Typography>
 							Insurance ID:{' '}
-							{parseInt(patient._insuranceCompanyId._hex)}
+							{parseInt(patient.insuranceCompanyId._hex)}
 						</Typography>
 						<Typography>
-							Blood Group: {patient._bloodGroup}
+							Blood Group: {patient.bloodGroup}
 						</Typography>
 						<Typography>
-							Permanent Ailments: {patient._ailments}
+							Permanent Ailments: {patient.ailments}
 						</Typography>
 						<Typography>
 							Emergency Contact Name:{' '}
-							{patient._emergencyContactName}
+							{patient.emergencyContactName}
 						</Typography>
 						<Typography>
 							Emergency Contact Relation:{' '}
-							{patient._emergencyContactRelation}
+							{patient.emergencyContactRelation}
 						</Typography>
 						<Typography>
 							Emergency Contact Phone:{' '}
-							{patient._emergencyContactPhone._hex}
+							{parseInt(patient.emergencyContactPhone._hex)}
 						</Typography>
 					</>
 				)}
