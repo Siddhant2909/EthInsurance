@@ -7,6 +7,7 @@ import PatientDetails from './components/patient/PatientDetails'
 import PatientSignUp from './components/patient/PatientSignUp'
 import PatientTreatment from './components/patient/PatientTreatment'
 import AddInsurancePolicy from './components/insurance/AddInsurancePolicy'
+import GetPolicyDetails from './components/insurance/GetPolicyDetails'
 
 const Router = () => {
 	return (
@@ -24,6 +25,7 @@ const Router = () => {
 				path='add-insurance-policy'
 				element={<AddInsurancePolicy />}
 			/>
+			<Route path='get-policy' element={<GetPolicyDetails />} />
 		</Routes>
 	)
 }
