@@ -47,7 +47,7 @@ const PatientTreatment = () => {
 
 		const accounts = await web3.eth.getAccounts()
 		await contract.methods
-			.treatPatient(
+			.treatPatient([
 				uid,
 				patientAadhaar,
 				doctorName,
@@ -56,7 +56,7 @@ const PatientTreatment = () => {
 				testsConducted,
 				billingAmount,
 				medicines
-			)
+			])
 			.send({ from: accounts[0] }, (result) => {
 				setOpen(true)
 				setTreatment({
