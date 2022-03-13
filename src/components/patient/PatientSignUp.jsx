@@ -15,6 +15,7 @@ const PatientSignUp = () => {
 	const [patient, setPatient] = React.useState({
 		aadhaarNumber: '',
 		name: '',
+		age: '',
 		email: '',
 		bloodGroup: '',
 		phoneNo: '',
@@ -32,6 +33,7 @@ const PatientSignUp = () => {
 	const {
 		aadhaarNumber,
 		name,
+		age,
 		email,
 		bloodGroup,
 		weight,
@@ -61,6 +63,7 @@ const PatientSignUp = () => {
 				aadhaarNumber,
 				email,
 				name,
+				age,
 				phoneNo,
 				bloodGroup,
 				insuranceId,
@@ -77,6 +80,7 @@ const PatientSignUp = () => {
 				setPatient({
 					aadhaarNumber: '',
 					name: '',
+					age: '',
 					email: '',
 					bloodGroup: '',
 					phoneNo: '',
@@ -147,6 +151,17 @@ const PatientSignUp = () => {
 								fullWidth
 								label='Name'
 								value={name}
+								onChange={handleChange}
+							/>
+						</Grid>
+						<Grid item xs={12}>
+							<TextField
+								required
+								fullWidth
+								name='age'
+								label='Age'
+								type='number'
+								value={age}
 								onChange={handleChange}
 							/>
 						</Grid>

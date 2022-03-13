@@ -48,6 +48,13 @@ const Home = () => {
 						Patient Treatment
 					</Link>
 				</Button>
+				<Button type='submit' variant='contained' sx={{ mt: 3, mb: 2 }}>
+					<Link
+						to='add-insurance-policy'
+						className='action-link-text'>
+						Add Insurance Policy
+					</Link>
+				</Button>
 			</Box>
 		</div>
 	)

@@ -53,6 +53,7 @@ const PatientDetails = () => {
 					<>
 						<Typography variant='h6'>Patient Details</Typography>
 						<Typography>Name: {patient._name}</Typography>
+						<Typography>Age: {patient._age}</Typography>
 						<Typography>Height: {patient._height}</Typography>
 						<Typography>Weight: {patient._weight}</Typography>
 						<Typography>Email: {patient._email}</Typography>
