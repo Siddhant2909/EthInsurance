@@ -53,9 +53,9 @@ const PatientDetails = () => {
 					<>
 						<Typography variant='h6'>Patient Details</Typography>
 						<Typography>Name: {patient._name}</Typography>
-						<Typography>Age: {patient._age}</Typography>
-						<Typography>Height: {patient._height}</Typography>
-						<Typography>Weight: {patient._weight}</Typography>
+						<Typography>Age: {patient._age._hex}</Typography>
+						<Typography>Height: {patient._height._hex}</Typography>
+						<Typography>Weight: {patient._weight._hex}</Typography>
 						<Typography>Email: {patient._email}</Typography>
 						<Typography>
 							Mobile: {parseInt(patient._phoneNo._hex)}
@@ -65,7 +65,7 @@ const PatientDetails = () => {
 						</Typography>
 						<Typography>
 							Insurance ID:{' '}
-							{parseInt(patient._insuranceCompany._hex)}
+							{parseInt(patient._insuranceCompanyId._hex)}
 						</Typography>
 						<Typography>
 							Blood Group: {patient._bloodGroup}
@@ -83,7 +83,7 @@ const PatientDetails = () => {
 						</Typography>
 						<Typography>
 							Emergency Contact Phone:{' '}
-							{patient._emergencyContactPhone}
+							{patient._emergencyContactPhone._hex}
 						</Typography>
 					</>
 				)}
