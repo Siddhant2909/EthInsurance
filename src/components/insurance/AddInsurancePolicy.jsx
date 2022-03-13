@@ -34,12 +34,12 @@ const AddInsurancePolicy = () => {
 
 		const accounts = await web3.eth.getAccounts()
 		await contract.methods
-			.treatPatient(
+			.treatPatient([
 				uid,
 				insuranceProviderId,
 				patientAadhaar,
 				insuredAmount
-			)
+			])
 			.send({ from: accounts[0] }, (result) => {
 				setOpen(true)
 				setPolicy({

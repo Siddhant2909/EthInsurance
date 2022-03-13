@@ -51,8 +51,14 @@ const GetPolicyDetails = () => {
 				{policy && (
 					<>
 						<Typography variant='h6'>Patient Details</Typography>
-						<Typography>Name: {policy._insuredAmount}</Typography>
-						<Typography>Name: {policy._balanceAmount}</Typography>
+						<Typography>
+							Insured Amount:{' '}
+							{parseInt(policy.insuredAmount._hex)}
+						</Typography>
+						<Typography>
+							Balance Amount:{' '}
+							{parseInt(policy.balanceAmount._hex)}
+						</Typography>
 					</>
 				)}
 			</Box>
