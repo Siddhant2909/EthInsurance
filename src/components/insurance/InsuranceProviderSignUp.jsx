@@ -43,7 +43,7 @@ const InsuranceProviderSignUp = () => {
 
 		const accounts = await web3.eth.getAccounts()
 		await contract.methods
-			.addHospitalInfo([
+			.addInsuranceProvider([
 				uid,
 				name,
 				helplineEmail,

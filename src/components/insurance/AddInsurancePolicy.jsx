@@ -34,7 +34,7 @@ const AddInsurancePolicy = () => {
 
 		const accounts = await web3.eth.getAccounts()
 		await contract.methods
-			.treatPatient([
+			.addInsurancePolicy([
 				uid,
 				insuranceProviderId,
 				patientAadhaar,
