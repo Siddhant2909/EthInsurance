@@ -8,6 +8,7 @@ import PatientSignUp from './components/patient/PatientSignUp'
 import PatientTreatment from './components/patient/PatientTreatment'
 import AddInsurancePolicy from './components/insurance/AddInsurancePolicy'
 import GetPolicyDetails from './components/insurance/GetPolicyDetails'
+import PatientTreatmentDetails from './components/patient/PatientTreatmentDetails'
 
 const Router = () => {
 	return (
@@ -21,6 +22,10 @@ const Router = () => {
 				element={<InsuranceProviderSignUp />}
 			/>
 			<Route path='treat-patient' element={<PatientTreatment />} />
+			<Route
+				path='get-treatment-details'
+				element={<PatientTreatmentDetails />}
+			/>
 			<Route
 				path='add-insurance-policy'
 				element={<AddInsurancePolicy />}

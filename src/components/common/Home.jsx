@@ -50,6 +50,13 @@ const Home = () => {
 				</Button>
 				<Button type='submit' variant='contained' sx={{ mt: 3, mb: 2 }}>
 					<Link
+						to='get-treatment-details'
+						className='action-link-text'>
+						Get Patient Treatment details
+					</Link>
+				</Button>
+				<Button type='submit' variant='contained' sx={{ mt: 3, mb: 2 }}>
+					<Link
 						to='add-insurance-policy'
 						className='action-link-text'>
 						Add Insurance Policy

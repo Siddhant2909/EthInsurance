@@ -116,7 +116,7 @@ const InsuranceProviderSignUp = () => {
 								name='name'
 								required
 								fullWidth
-								label='Hospital Name'
+								label='Insurance Provider Name'
 								value={name}
 								onChange={handleChange}
 							/>
