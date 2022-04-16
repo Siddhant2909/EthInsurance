@@ -9,11 +9,17 @@ import PatientTreatment from './components/patient/PatientTreatment'
 import AddInsurancePolicy from './components/insurance/AddInsurancePolicy'
 import GetPolicyDetails from './components/insurance/GetPolicyDetails'
 import PatientTreatmentDetails from './components/patient/PatientTreatmentDetails'
+import Patient from './components/patient'
+import Insurance from './components/insurance'
+import Hospital from './components/hospital'
 
 const Router = () => {
 	return (
 		<Routes>
 			<Route index element={<Home />} />
+			<Route path='patient' element={<Patient />} />
+			<Route path='hospital' element={<Hospital />} />
+			<Route path='insurance' element={<Insurance />} />
 			<Route path='add-patient' element={<PatientSignUp />} />
 			<Route path='patient-details' element={<PatientDetails />} />
 			<Route path='add-hospital' element={<HospitalSignUp />} />

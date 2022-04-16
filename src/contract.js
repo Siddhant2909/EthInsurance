@@ -1,6 +1,6 @@
 import web3 from './web3'
 
-const address = '0xC7003A96B9532B71C36fDbf38eB9C61D4581973e'
+const address = '0x81B40eBD9c06E7Ab46A93d0F390D8E5c704077F6'
 const abi = [
 	{
 		inputs: [],
@@ -78,7 +78,7 @@ const abi = [
 					},
 					{
 						internalType: 'uint256',
-						name: 'insuredamount',
+						name: 'insuredAmount',
 						type: 'uint256'
 					}
 				],
@@ -383,7 +383,7 @@ const abi = [
 					},
 					{
 						internalType: 'uint256',
-						name: 'insuredamount',
+						name: 'insuredAmount',
 						type: 'uint256'
 					}
 				],
