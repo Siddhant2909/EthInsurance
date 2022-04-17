@@ -28,7 +28,11 @@ const PatientSignUp = () => {
 		emergencyContactRelation: '',
 		emergencyContactPhone: ''
 	})
-	const [open, setOpen] = React.useState(false)
+	const [alert, setAlert] = React.useState({
+		severity: '',
+		open: false,
+		message: ''
+	})
 
 	const { account } = useWeb3React()
 	const contract = React.useContext(ContractContext)
@@ -79,7 +83,20 @@ const PatientSignUp = () => {
 			])
 			.send({ from: account }, (error) => {
 				console.log('error from blockchain', error)
-				setOpen(true)
+				if (error) {
+					return setAlert({
+						...alert,
+						open: true,
+						severity: 'error',
+						message: 'Duplicate record cannot be added'
+					})
+				}
+				setAlert({
+					...alert,
+					open: true,
+					severity: 'success',
+					message: 'Patient added'
+				})
 				setPatient({
 					aadhaarNumber: '',
 					name: '',
@@ -96,6 +113,7 @@ const PatientSignUp = () => {
 					emergencyContactRelation: '',
 					emergencyContactPhone: ''
 				})
+				setTimeout(() => setAlert({ ...alert, open: false }), 5000)
 			})
 	}
 
@@ -121,7 +139,7 @@ const PatientSignUp = () => {
 	return (
 		<Container component='main' maxWidth='xs'>
 			<Button onClick={() => fillDummyData()}>Fill</Button>
-			<Collapse in={open} sx={{ marginTop: '20px' }}>
+			<Collapse in={alert.open} sx={{ marginTop: '20px' }}>
 				<Alert
 					action={
 						<IconButton
@@ -129,13 +147,14 @@ const PatientSignUp = () => {
 							color='inherit'
 							size='small'
 							onClick={() => {
-								setOpen(false)
+								setAlert({ ...alert, open: false })
 							}}>
 							<Close fontSize='inherit' />
 						</IconButton>
 					}
+					severity={alert.severity}
 					sx={{ mb: 2 }}>
-					Patient added
+					{alert.message}
 				</Alert>
 			</Collapse>
 			<CssBaseline />

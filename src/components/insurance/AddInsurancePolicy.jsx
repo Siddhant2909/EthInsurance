@@ -18,7 +18,11 @@ const AddInsurancePolicy = () => {
 		patientAadhaar: '',
 		insuredAmount: ''
 	})
-	const [open, setOpen] = React.useState(false)
+	const [alert, setAlert] = React.useState({
+		severity: '',
+		open: false,
+		message: ''
+	})
 	const { account } = useWeb3React()
 	const contract = React.useContext(ContractContext)
 
@@ -41,8 +45,22 @@ const AddInsurancePolicy = () => {
 				patientAadhaar,
 				insuredAmount
 			])
-			.send({ from: account }, (result) => {
-				setOpen(true)
+			.send({ from: account }, (error) => {
+				console.log('error from blockchain', error)
+				if (error) {
+					return setAlert({
+						...alert,
+						open: true,
+						severity: 'error',
+						message: 'Duplicate record cannot be added'
+					})
+				}
+				setAlert({
+					...alert,
+					open: true,
+					severity: 'success',
+					message: 'Insurance Policy added'
+				})
 				setPolicy({
 					uid: '',
 					insuranceProviderId: '',
@@ -54,7 +72,7 @@ const AddInsurancePolicy = () => {
 
 	return (
 		<Container component='main' maxWidth='xs'>
-			<Collapse in={open} sx={{ marginTop: '20px' }}>
+			<Collapse in={alert.open} sx={{ marginTop: '20px' }}>
 				<Alert
 					action={
 						<IconButton
@@ -62,13 +80,14 @@ const AddInsurancePolicy = () => {
 							color='inherit'
 							size='small'
 							onClick={() => {
-								setOpen(false)
+								setAlert({ ...alert, open: false })
 							}}>
 							<Close fontSize='inherit' />
 						</IconButton>
 					}
+					severity={alert.severity}
 					sx={{ mb: 2 }}>
-					Insurance Policy added
+					{alert.message}
 				</Alert>
 			</Collapse>
 			<CssBaseline />

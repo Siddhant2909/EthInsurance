@@ -68,3 +68,7 @@ h6 {
 .action-link-text {
 	color: white;
 }
+
+a {
+	text-decoration: none;
+}
