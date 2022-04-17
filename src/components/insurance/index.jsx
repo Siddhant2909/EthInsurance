@@ -23,7 +23,7 @@ const Insurance = () => {
 				}}>
 				<Button type='submit' variant='contained' sx={{ mt: 3, mb: 2 }}>
 					<Link
-						to='add-insurance-provider'
+						to='/add-insurance-provider'
 						className='action-link-text'>
 						Add Insurance Company
 					</Link>
@@ -31,13 +31,13 @@ const Insurance = () => {
 
 				<Button type='submit' variant='contained' sx={{ mt: 3, mb: 2 }}>
 					<Link
-						to='add-insurance-policy'
+						to='/add-insurance-policy'
 						className='action-link-text'>
 						Add Insurance Policy
 					</Link>
 				</Button>
 				<Button type='submit' variant='contained' sx={{ mt: 3, mb: 2 }}>
-					<Link to='get-policy' className='action-link-text'>
+					<Link to='/get-policy' className='action-link-text'>
 						Get Policy Details
 					</Link>
 				</Button>

@@ -6,19 +6,20 @@ import {
 	TextField,
 	Typography
 } from '@mui/material'
+import { useWeb3React } from '@web3-react/core'
 import React, { useState } from 'react'
-import contract from '../../contract'
-import web3 from '../../web3'
+import { ContractContext } from '../../ContractProvider'
 
 const PatientDetails = () => {
 	const [aadhaarNumber, setAadhaarNumber] = useState('')
 	const [patient, setPatient] = useState(null)
+	const { account } = useWeb3React()
+	const contract = React.useContext(ContractContext)
 
 	const onBtnClick = async () => {
-		const accounts = await web3.eth.getAccounts()
 		await contract.methods
 			.getPatientInfo(aadhaarNumber)
-			.call({ from: accounts[0] })
+			.call({ from: account })
 			.then(setPatient)
 			.catch(console.error)
 	}

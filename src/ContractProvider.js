@@ -1,6 +1,6 @@
-import web3 from './web3'
-
-const address = '0x81B40eBD9c06E7Ab46A93d0F390D8E5c704077F6'
+import { useWeb3React } from '@web3-react/core'
+import React, { createContext, useEffect, useState } from 'react'
+const address = '0xfc5C695f5C12e09a1822E02A0ce8845de5F1241f'
 const abi = [
 	{
 		inputs: [],
@@ -553,5 +553,23 @@ const abi = [
 		type: 'function'
 	}
 ]
+const ContractContext = createContext()
 
-export default new web3.eth.Contract(abi, address)
+const ContractProvider = ({ children }) => {
+	const [contract, setContract] = useState(null)
+	const { library, active } = useWeb3React()
+
+	useEffect(() => {
+		if (active && library)
+			setContract(new library.eth.Contract(abi, address))
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [active])
+
+	return (
+		<ContractContext.Provider value={contract}>
+			{children}
+		</ContractContext.Provider>
+	)
+}
+export { ContractContext }
+export default ContractProvider

@@ -7,9 +7,9 @@ import Box from '@mui/material/Box'
 import { Close } from '@mui/icons-material'
 import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
-import contract from '../../contract'
-import web3 from '../../web3'
+import { ContractContext } from '../../ContractProvider'
 import { Alert, Collapse, IconButton } from '@mui/material'
+import { useWeb3React } from '@web3-react/core'
 
 const HospitalSignUp = () => {
 	const [hospital, setHospital] = React.useState({
@@ -21,6 +21,8 @@ const HospitalSignUp = () => {
 		location: '',
 		speciality: ''
 	})
+	const { account } = useWeb3React()
+	const contract = React.useContext(ContractContext)
 	const [open, setOpen] = React.useState(false)
 
 	const {
@@ -43,7 +45,6 @@ const HospitalSignUp = () => {
 	const handleSubmit = async (event) => {
 		event.preventDefault()
 
-		const accounts = await web3.eth.getAccounts()
 		await contract.methods
 			.addHospital([
 				uid,
@@ -54,7 +55,7 @@ const HospitalSignUp = () => {
 				location,
 				speciality
 			])
-			.send({ from: accounts[0] }, (result) => {
+			.send({ from: account }, (result) => {
 				setOpen(true)
 				setHospital({
 					uid: '',

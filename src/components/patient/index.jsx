@@ -22,12 +22,12 @@ const Patient = () => {
 					padding: '0 80px'
 				}}>
 				<Button type='submit' variant='contained' sx={{ mt: 3, mb: 2 }}>
-					<Link to='add-patient' className='action-link-text'>
+					<Link to='/add-patient' className='action-link-text'>
 						Add Patient
 					</Link>
 				</Button>
 				<Button type='submit' variant='contained' sx={{ mt: 3, mb: 2 }}>
-					<Link to='patient-details' className='action-link-text'>
+					<Link to='/patient-details' className='action-link-text'>
 						Get Patient Details
 					</Link>
 				</Button>

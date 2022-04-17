@@ -7,9 +7,9 @@ import Box from '@mui/material/Box'
 import { Close } from '@mui/icons-material'
 import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
-import contract from '../../contract'
-import web3 from '../../web3'
 import { Alert, Collapse, IconButton } from '@mui/material'
+import { useWeb3React } from '@web3-react/core'
+import { ContractContext } from '../../ContractProvider'
 
 const InsuranceProviderSignUp = () => {
 	const [insuranceProvider, setInsuranceProvider] = React.useState({
@@ -21,6 +21,8 @@ const InsuranceProviderSignUp = () => {
 		location: ''
 	})
 	const [open, setOpen] = React.useState(false)
+	const { account } = useWeb3React()
+	const contract = React.useContext(ContractContext)
 
 	const {
 		uid,
@@ -41,7 +43,6 @@ const InsuranceProviderSignUp = () => {
 	const handleSubmit = async (event) => {
 		event.preventDefault()
 
-		const accounts = await web3.eth.getAccounts()
 		await contract.methods
 			.addInsuranceProvider([
 				uid,
@@ -51,7 +52,7 @@ const InsuranceProviderSignUp = () => {
 				emergencyNumber,
 				location
 			])
-			.send({ from: accounts[0] }, (result) => {
+			.send({ from: account }, (result) => {
 				setOpen(true)
 				setInsuranceProvider({
 					uid: '',

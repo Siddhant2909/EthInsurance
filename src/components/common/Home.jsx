@@ -1,6 +1,7 @@
 import { Box, Button, Typography } from '@mui/material'
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Connect from '../Connect'
 
 const Home = () => {
 	return (
@@ -14,6 +15,7 @@ const Home = () => {
 				marginTop: '50px'
 			}}>
 			<Typography variant='h4'>Actions</Typography>
+			<Connect />
 			<Box
 				sx={{
 					display: 'flex',
