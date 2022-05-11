@@ -1,5 +1,5 @@
 {
-	"address": "0x56EC7dDF9e3AB8C8ec69FCB243890BBa417Ea76E",
+	"address": "0x683abe38c6B4AA5d67a335AfC6A7bfD415398b3B",
 	"abi": [
 		{
 			"inputs": [],
@@ -490,6 +490,16 @@
 						{
 							"internalType": "uint256",
 							"name": "billingAmount",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "patientShare",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "insuranceShare",
 							"type": "uint256"
 						},
 						{

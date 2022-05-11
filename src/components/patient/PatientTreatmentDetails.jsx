@@ -57,7 +57,8 @@ const PatientTreatmentDetails = () => {
 							Aadhaar: {parseInt(treatmentDetails.patientAadhaar)}
 						</Typography>
 						<Typography>
-							Insurance Policy ID: {parseInt(treatmentDetails.insurancePolicyId)}
+							Insurance Policy ID:{' '}
+							{parseInt(treatmentDetails.insurancePolicyId)}
 						</Typography>
 						<Typography>
 							Hospital ID: {parseInt(treatmentDetails.hospitalId)}
@@ -74,6 +75,14 @@ const PatientTreatmentDetails = () => {
 						<Typography>
 							Billing Amount:{' '}
 							{parseInt(treatmentDetails.billingAmount._hex)}
+						</Typography>
+						<Typography>
+							Insurance Share:{' '}
+							{parseInt(treatmentDetails.insuranceShare)}
+						</Typography>
+						<Typography>
+							Patient share:{' '}
+							{parseInt(treatmentDetails.patientShare)}
 						</Typography>
 						<Typography>
 							Medicines: {treatmentDetails.medicines}
