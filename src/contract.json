@@ -1,5 +1,5 @@
 {
-	"address": "0x3877Fe353B04Ad94b068e83B1e3ab396B3A5fC14",
+	"address": "0x56EC7dDF9e3AB8C8ec69FCB243890BBa417Ea76E",
 	"abi": [
 		{
 			"inputs": [],
@@ -46,7 +46,7 @@
 							"type": "string"
 						}
 					],
-					"internalType": "struct Patient.hospital_info",
+					"internalType": "struct Ethinsurance.hospital_info",
 					"name": "hospital_infor",
 					"type": "tuple"
 				}
@@ -72,16 +72,16 @@
 						},
 						{
 							"internalType": "uint256",
-							"name": "patientaadhar",
+							"name": "patientAadhar",
 							"type": "uint256"
 						},
 						{
 							"internalType": "uint256",
-							"name": "insuredamount",
+							"name": "insuredAmount",
 							"type": "uint256"
 						}
 					],
-					"internalType": "struct Patient.ins_policy_info",
+					"internalType": "struct Ethinsurance.ins_policy_info",
 					"name": "ins_policy_infor",
 					"type": "tuple"
 				}
@@ -126,7 +126,7 @@
 							"type": "string"
 						}
 					],
-					"internalType": "struct Patient.ins_comp_info",
+					"internalType": "struct Ethinsurance.ins_comp_info",
 					"name": "ins_comp_infor",
 					"type": "tuple"
 				}
@@ -211,7 +211,7 @@
 							"type": "uint256"
 						}
 					],
-					"internalType": "struct Patient.inputPatient",
+					"internalType": "struct Ethinsurance.inputPatient",
 					"name": "inputPatientInfo",
 					"type": "tuple"
 				}
@@ -229,7 +229,7 @@
 					"type": "uint256"
 				}
 			],
-			"name": "getHospitaltInfo",
+			"name": "getHospitalInfo",
 			"outputs": [
 				{
 					"components": [
@@ -264,7 +264,7 @@
 							"type": "string"
 						}
 					],
-					"internalType": "struct Patient.hospital",
+					"internalType": "struct Ethinsurance.hospital",
 					"name": "HospitalData",
 					"type": "tuple"
 				}
@@ -350,7 +350,7 @@
 							"type": "uint256"
 						}
 					],
-					"internalType": "struct Patient.patient",
+					"internalType": "struct Ethinsurance.patient",
 					"name": "patientInfoValue",
 					"type": "tuple"
 				}
@@ -377,16 +377,21 @@
 						},
 						{
 							"internalType": "uint256",
-							"name": "patientaadhar",
+							"name": "patientAadhar",
 							"type": "uint256"
 						},
 						{
 							"internalType": "uint256",
-							"name": "insuredamount",
+							"name": "insuredAmount",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "balanceAmount",
 							"type": "uint256"
 						}
 					],
-					"internalType": "struct Patient.ins_policy",
+					"internalType": "struct Ethinsurance.ins_policy",
 					"name": "InsPolicyValue",
 					"type": "tuple"
 				}
@@ -402,7 +407,7 @@
 					"type": "uint256"
 				}
 			],
-			"name": "getProvidetInfo",
+			"name": "getProviderInfo",
 			"outputs": [
 				{
 					"components": [
@@ -432,7 +437,7 @@
 							"type": "string"
 						}
 					],
-					"internalType": "struct Patient.ins_comp",
+					"internalType": "struct Ethinsurance.ins_comp",
 					"name": "InsCompValue",
 					"type": "tuple"
 				}
@@ -448,13 +453,18 @@
 					"type": "uint256"
 				}
 			],
-			"name": "getTreatmenttInfo",
+			"name": "getTreatmentInfo",
 			"outputs": [
 				{
 					"components": [
 						{
 							"internalType": "uint256",
 							"name": "patientAadhaar",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "insurancePolicyId",
 							"type": "uint256"
 						},
 						{
@@ -488,7 +498,7 @@
 							"type": "string"
 						}
 					],
-					"internalType": "struct Patient.treatment",
+					"internalType": "struct Ethinsurance.treatment",
 					"name": "TreatmentData",
 					"type": "tuple"
 				}
@@ -511,6 +521,11 @@
 							"type": "uint256"
 						},
 						{
+							"internalType": "uint256",
+							"name": "insurancePolicyId",
+							"type": "uint256"
+						},
+						{
 							"internalType": "string",
 							"name": "doctorName",
 							"type": "string"
@@ -541,7 +556,7 @@
 							"type": "string"
 						}
 					],
-					"internalType": "struct Patient.treatment_info",
+					"internalType": "struct Ethinsurance.treatment_info",
 					"name": "treatment_infor",
 					"type": "tuple"
 				}

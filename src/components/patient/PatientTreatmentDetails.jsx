@@ -57,6 +57,9 @@ const PatientTreatmentDetails = () => {
 							Aadhaar: {parseInt(treatmentDetails.patientAadhaar)}
 						</Typography>
 						<Typography>
+							Insurance Policy ID: {parseInt(treatmentDetails.insurancePolicyId)}
+						</Typography>
+						<Typography>
 							Hospital ID: {parseInt(treatmentDetails.hospitalId)}
 						</Typography>
 						<Typography>

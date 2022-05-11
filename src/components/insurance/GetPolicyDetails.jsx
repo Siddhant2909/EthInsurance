@@ -56,10 +56,10 @@ const GetPolicyDetails = () => {
 							Insured Amount:{' '}
 							{parseInt(policy.insuredAmount._hex)}
 						</Typography>
-						{/* <Typography>
+						<Typography>
 							Balance Amount:{' '}
 							{parseInt(policy.balanceAmount._hex)}
-						</Typography> */}
+						</Typography>
 					</>
 				)}
 			</Box>

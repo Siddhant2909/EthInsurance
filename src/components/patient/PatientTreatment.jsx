@@ -15,6 +15,7 @@ const PatientTreatment = () => {
 	const [treatment, setTreatment] = React.useState({
 		uid: '',
 		patientAadhaar: '',
+		insurancePolicyId: '',
 		doctorName: '',
 		hospitalId: '',
 		diagnosis: '',
@@ -33,6 +34,7 @@ const PatientTreatment = () => {
 	const {
 		uid,
 		patientAadhaar,
+		insurancePolicyId,
 		doctorName,
 		hospitalId,
 		diagnosis,
@@ -55,6 +57,7 @@ const PatientTreatment = () => {
 			.treatPatient([
 				uid,
 				patientAadhaar,
+				insurancePolicyId,
 				doctorName,
 				hospitalId,
 				diagnosis,
@@ -81,6 +84,7 @@ const PatientTreatment = () => {
 				setTreatment({
 					uid: '',
 					patientAadhaar: '',
+					insurancePolicyId: '',
 					doctorName: '',
 					hospitalId: '',
 					diagnosis: '',
@@ -147,6 +151,17 @@ const PatientTreatment = () => {
 								label='Patient Aadhaar'
 								type='number'
 								value={patientAadhaar}
+								onChange={handleChange}
+							/>
+						</Grid>
+						<Grid item xs={12}>
+							<TextField
+								required
+								fullWidth
+								name='insurancePolicyId'
+								label='Insurance Policy ID'
+								type='number'
+								value={insurancePolicyId}
 								onChange={handleChange}
 							/>
 						</Grid>
